@@ -1,0 +1,58 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Dashboards",
+      "icon": "menu-icon icon-base bx bx-home-smile",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "menuHeader": "Management"
+    },
+    {
+      "url": "/department",
+      "name": "Department",
+      "icon": "menu-icon icon-base bx bx-building",
+      "slug": "department-list"
+    },
+    {
+      "url": "/job-posting",
+      "name": "Job Posting",
+      "icon": "menu-icon icon-base bx bx-search-alt",
+      "slug": "job-posting"
+    },
+    {
+      "url": "/employee-list",
+      "name": "Employee",
+      "icon": "menu-icon icon-base bx bx-id-card",
+      "slug": "employee-list"
+    },
+    {
+      "url": "/profile",
+      "name": "Profile",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "profile"
+    },
+    {
+      "url": "/account-list",
+      "name": "Account",
+      "icon": "menu-icon icon-base bx bx-user-circle",
+      "slug": "account-list"
+    },
+    {
+      "menuHeader": "System"
+    },
+    {
+      "url": "/logs",
+      "name": "Logs",
+      "icon": "menu-icon icon-base bx bx-notepad",
+      "slug": "logs-list"
+    },
+    {
+      "url": "/logout",
+      "name": "Sign out",
+      "icon": "menu-icon icon-base bx bx-log-out",
+      "slug": "logout-process"
+    }
+  ]
+}
