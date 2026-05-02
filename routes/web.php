@@ -45,12 +45,15 @@ use App\Http\Controllers\form_elements\BasicInput;
 use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
+use App\Http\Controllers\home\HomeController;
 use App\Http\Controllers\job\JobController;
 use App\Http\Controllers\log\ActivityLogsCotroller;
 use App\Http\Controllers\profile\ProfileController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 // Main Page Route
+Route::get('/', [HomeController::class, 'landingPage'])->name('home');
+Route::get('/jobs', [HomeController::class, 'jobPage'])->name('jobs');
 
 Route::middleware(['guest'])->group(function() {
 

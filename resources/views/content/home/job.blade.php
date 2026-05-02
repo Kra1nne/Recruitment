@@ -1,0 +1,110 @@
+@extends('layouts/homePageLayout')
+
+@section('title', 'Home Page')
+
+@section('content')
+
+  {{-- Bootstrap 5 & Icons CDN --}}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
+    <div class="container">
+
+      {{-- Logo (Left) --}}
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="#">
+        <span class="app-brand-logo demo">@include('_partials.macros')</span>
+        <span class="text-primary">Empathra</span>
+      </a>
+
+      {{-- Toggler --}}
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+
+        {{-- Center Links --}}
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-secondary" href="{{ route('home') }}">
+              <i class="bi bi-house-door me-1"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-primary active" href="{{ route('jobs') }}">
+              <i class="bi bi-briefcase me-1"></i>Jobs
+            </a>
+          </li>
+        </ul>
+
+        {{-- Login (Right) --}}
+        <div class="d-flex">
+          <a href="{{ route('login') }}" class="btn btn-primary fw-semibold px-4">
+            <i class="bi bi-box-arrow-in-right me-1"></i>Login
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <section class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-5 flex-wrap gap-2">
+      <div>
+        <h5 class="fw-semibold mb-0 ">Job Listings</h5>
+        <small class="text-muted">List of the active available jobs</small>
+      </div>
+    </div>
+    <div class="card-body d-flex flex-column gap-3 pt-3">
+
+      {{-- Job Card 1 --}}
+      @forelse ($jobList as $item)
+        <div class="border rounded-3 p-3">
+          <div class="d-flex gap-3 align-items-start">
+
+            <div class="w-100">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <h6 class="fw-semibold mb-0">{{ $item->title }}</h6>
+                    <span class="badge text-bg-warning rounded-pill text-dark">{{ $item->status }}</span>
+                  </div>
+                  <p class="text-muted small mb-0">{{ $item->company }} &middot; {{ $item->location }}</p>
+                </div>
+                <span class="fw-semibold small">₱{{ number_format($item->salary, 2) }} / mo</span>
+              </div>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge rounded-pill text-bg-success">{{ $item->work_status }}</span>
+                <span class="badge rounded-pill text-bg-primary">{{ $item->work_arrangement }}</span>
+              </div>
+              <p class="text-muted small mt-2 mb-0">
+                {{ $item->description }}
+              </p>
+              <hr class="my-2" />
+              <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
+                <div class="d-flex flex-wrap gap-3">
+                  <span class="text-muted small d-flex align-items-center gap-1"><i
+                      class='bx bx-time-five'></i>{{ $item->created_at->diffForHumans() }}</span>
+                  <span class="text-muted small d-flex align-items-center gap-1"><i class='bx bx-user-check'></i>
+                    {{ $item->applicants->count() ?? 0 }}
+                    applicants</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      @empty
+        <div class="mt-5">
+          <h5 class="text-center lead">No Job Listing</h5>
+        </div>
+      @endforelse
+    </div>
+    <div class="card-footer bg-white d-flex justify-content-end align-items-center flex-wrap gap-2 py-2">
+      {{ $jobList->onEachSide(2)->links() }}
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+@endsection
