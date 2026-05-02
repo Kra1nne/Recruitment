@@ -101,8 +101,8 @@
                         applicants</span>
                     </div>
                     <div class="d-flex flex-column flex-sm-row gap-2">
-                      <a href="#" class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1"><i
-                          class='bx bx-show'></i>
+                      <a href="{{ route('job-view', Crypt::encryptString($item->id)) }}"
+                        class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1"><i class='bx bx-show'></i>
                         View</a>
                       <a href="{{ route('job-posting-edit', Crypt::encryptString($item->id)) }}"
                         class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1"><i class='bx bx-edit'></i>

@@ -172,4 +172,17 @@ class EmployeeController extends Controller
             return redirect()->back()->with('error', 'Employee unable to delete!');
         }
     }
+    public function employeeView($id)
+    {
+         $employeeData = Employee::with(['department', 'person'])
+            ->where('id', Crypt::decryptString($id))
+            ->first();
+
+        $breadcrumbs = [
+            ['name' => 'Dashboard', 'link' => route('dashboard-analytics')],
+            ['name' => 'Employee List', 'link' => route('employee-list')],
+            ['name' => 'Employee View'],
+        ];
+        return view('content.employee.employee-view', compact('employeeData','breadcrumbs'));
+    }
 }

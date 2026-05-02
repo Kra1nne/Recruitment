@@ -117,7 +117,8 @@
                   <td><span class="text-muted small">{{ date('M d, Y', strtotime($item->date)) }}</span></td>
                   <td class="text-end pe-3">
                     <div class="d-flex gap-1 justify-content-end">
-                      <a href="#" class="btn btn-outline-secondary btn-sm"><i class='bx bx-show'></i></a>
+                      <a href="{{ route('department-view', Crypt::encryptString($item->id)) }}"
+                        class="btn btn-outline-secondary btn-sm"><i class='bx bx-show'></i></a>
                       <a href="{{ route('department-form-edit', Crypt::encryptString($item->id)) }}"
                         class="btn btn-outline-primary btn-sm"><i class='bx bx-edit'></i></a>
                       <form action="{{ route('department-delete', Crypt::encryptString($item->id)) }}" method="POST"

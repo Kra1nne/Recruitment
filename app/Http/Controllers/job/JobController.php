@@ -86,7 +86,7 @@ class JobController extends Controller
     }
     public function jobEdit($id)
     {
-         $breadcrumbs = [
+        $breadcrumbs = [
             ['name' => 'Dashboard', 'link' => route('dashboard-analytics')],
             ['name' => 'Job Posting', 'link' => route('job-posting')],
             ['name' => 'Job Form']
@@ -149,5 +149,14 @@ class JobController extends Controller
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Job unable to delete!');
         }
+    }
+    public function jobView($id)
+    {
+        $breadcrumbs = [
+            ['name' => 'Dashboard', 'link' => route('dashboard-analytics')],
+            ['name' => 'Job Posting', 'link' => route('job-posting')],
+            ['name' => 'Job View']
+        ];
+        return view('content.job_posting.job_view', compact('breadcrumbs'));
     }
 }

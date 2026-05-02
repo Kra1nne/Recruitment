@@ -172,4 +172,18 @@ class AccountController extends Controller
             return redirect()->back()->with('error', 'Account unable to delete!');
         }
     }
+    public function accountView($id)
+    {
+        $employeeData = Employee::with(['department', 'person.user'])
+            ->where('id', Auth::user()->id)
+            ->first();
+
+        $breadcrumbs = [
+            ['name' => 'Dashboard', 'link' => route('dashboard-analytics')],
+            ['name' => 'Account List', 'link' => route('account-list')],
+            ['name' => 'Account View'],
+        ];
+
+        return view('content.account.account-view', compact('breadcrumbs', 'employeeData'));
+    }
 }

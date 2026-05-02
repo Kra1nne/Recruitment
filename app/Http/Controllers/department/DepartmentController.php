@@ -136,4 +136,27 @@ class DepartmentController extends Controller
             return redirect()->back()->with('error', 'Department unable to delete!');
         }
     }
+    public function departmentView(Request $request,$id)
+    {
+        $encrypted_id = $id;
+        $query = Employee::with(['department', 'person'])
+            ->where('department_id', Crypt::decryptString($id));
+
+        $isSearch = false;
+
+        if($request->search){
+            $isSearch = true;
+            $query->where('employee_id', 'like', '%'.$request->search.'%');
+        }
+
+        $departmentEmployee = $query->orderBy('id', 'desc')->paginate(7);
+
+        $breadcrumbs = [
+            ['name' => 'Dashboard', 'link' => route('dashboard-analytics')],
+            ['name' => 'Department List', 'link' => route('department-list')],
+            ['name' => 'Department View'],
+        ];
+
+        return view('content.department.department-view', compact('breadcrumbs', 'isSearch','departmentEmployee', 'encrypted_id'));
+    }
 }

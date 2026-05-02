@@ -73,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/department/form/add', [DepartmentController::class, 'departmentAdd'])->name('department-add');
     Route::post('/department/form/update', [DepartmentController::class, 'departmentUpdate'])->name('department-update');
     Route::delete('/department/form/delete/{id}', [DepartmentController::class, 'departmentDelete'])->name('department-delete');
+    Route::get('/department/view/{id}', [DepartmentController::class, 'departmentView'])->name('department-view');
 
     Route::get('/job-posting', [JobController::class, 'jobList'])->name('job-posting');
     Route::get('/job-posting/form', [JobController::class, 'jobForm'])->name('job-posting-form');
@@ -80,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/job-posting/add', [JobController::class, 'jobAdd'])->name('job-posting-add');
     Route::post('/job-posting/update', [JobController::class, 'jobUpdate'])->name('job-posting-update');
     Route::delete('/job-posting/delete/{id}', [JobController::class, 'jobDelete'])->name('job-posting-delete');
+    Route::get('/job-posting/view/{id}', [JobController::class, 'jobView'])->name('job-view');
 
     Route::get('/account-list', [AccountController::class, 'accountList'])->name('account-list');
     Route::get('/account-list/form', [AccountController::class, 'accountForm'])->name('account-form');
@@ -87,6 +89,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/account-list/{id}', [AccountController::class, 'accountEdit'])->name('account-edit');
     Route::post('/account-list/update', [AccountController::class, 'accountUpdate'])->name('account-update');
     Route::delete('/account-list/delete/{id}', [AccountController::class, 'accountDelete'])->name('account-delete');
+    Route::get('/account-list/view/{id}', [AccountController::class, 'accountView'])->name('account-view');
 
     Route::get('/employee-list', [EmployeeController::class, 'employeeList'])->name('employee-list');
     Route::get('/employee-list/form', [EmployeeController::class, 'employeeForm'])->name('employee-form');
@@ -94,8 +97,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/employee-list/{id}', [EmployeeController::class, 'employeeEdit'])->name('employee-edit');
     Route::post('/employee-list/update', [EmployeeController::class, 'employeeUpdate'])->name('employee-update');
     Route::delete('/employee-list/delete/{id}', [EmployeeController::class, 'employeeDelete'])->name('employee-delete');
-
-
+    Route::get('/employee-list/view/{id}', [EmployeeController::class, 'employeeView'])->name('employee-view');
 
     Route::get('/profile', [ProfileController::class, 'accountProfile'])->name('profile');
     Route::get('/logs', [ActivityLogsCotroller::class, 'activityLogs'])->name('logs-list');
