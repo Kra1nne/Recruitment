@@ -18,7 +18,8 @@ class Job extends Model
         'status',
         'description',
         'location',
-        'expired_at'
+        'expired_at',
+        'department_id'
     ];
 
     public function applicants()

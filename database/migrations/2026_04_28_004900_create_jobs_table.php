@@ -23,6 +23,9 @@ return new class extends Migration
             $table->text('description');
             $table->text('location');
             $table->date('expired_at');
+            $table->foreignId('department_id')
+                ->constrained('departments')
+                ->restrictOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

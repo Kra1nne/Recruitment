@@ -4,9 +4,6 @@
 
 @section('content')
 
-  {{-- Bootstrap 5 & Icons CDN --}}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   {{-- ══════════════════════════════════════
      NAVBAR
@@ -55,7 +52,7 @@
   {{-- ══════════════════════════════════════
      HERO
 ══════════════════════════════════════ --}}
-  <section class="bg-white py-5">
+  <section class="bg-white py-5 min-vh-100">
     <div class="container py-4">
       <div class="row align-items-center g-5">
 
@@ -77,10 +74,6 @@
               Get Started Free
             </a>
           </div>
-          <p class="mt-3 text-muted small">
-            <i class="bi bi-check-circle-fill text-primary me-1"></i> No credit card required &nbsp;·&nbsp;
-            <i class="bi bi-check-circle-fill text-primary me-1"></i> Free 14-day trial
-          </p>
         </div>
 
         {{-- Right: Illustration Card --}}
@@ -373,8 +366,5 @@
       </div>
     </div>
   </section>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 @endsection

@@ -10,6 +10,12 @@ class ApplicantLog extends Model
 
     protected $fillable = [
         'applicant_id',
+        'assessment_type',
+        'date',
+        'source_type',
+        'notes',
+        'created_at',
+        'updated_at'
     ];
 
     public function applicant()

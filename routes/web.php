@@ -54,6 +54,8 @@ use App\Http\Controllers\tables\Basic as TablesBasic;
 // Main Page Route
 Route::get('/', [HomeController::class, 'landingPage'])->name('home');
 Route::get('/jobs', [HomeController::class, 'jobPage'])->name('jobs');
+Route::get('/jobs/form/{id}', [HomeController::class, 'jobForm'])->name('jobs-form');
+Route::post('/jobs/applicant/add', [HomeController::class, 'jobApplicant'])->name('job-applicant-add');
 
 Route::middleware(['guest'])->group(function() {
 
@@ -82,6 +84,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/job-posting/update', [JobController::class, 'jobUpdate'])->name('job-posting-update');
     Route::delete('/job-posting/delete/{id}', [JobController::class, 'jobDelete'])->name('job-posting-delete');
     Route::get('/job-posting/view/{id}', [JobController::class, 'jobView'])->name('job-view');
+    Route::get('/job-posting/form/{id}', [JobController::class, 'jobApplicantForm'])->name('job-form');
+    Route::post('/job-posting/reject/{id}', [JobController::class, 'rejected'])->name('job-reject');
+    Route::post('/job-posting/accepted/{id}', [JobController::class, 'accepted'])->name('job-accepted');
+    Route::get('/job-posting/assessment/{id}', [JobController::class, 'applicantAssessment'])->name('job-assessment');
+    Route::post('/job-posting/assessment/send', [JobController::class, 'applicantAssessmentSend'])->name('job-assessment-send');
 
     Route::get('/account-list', [AccountController::class, 'accountList'])->name('account-list');
     Route::get('/account-list/form', [AccountController::class, 'accountForm'])->name('account-form');

@@ -88,6 +88,17 @@
               </select>
             </div>
 
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Department</label>
+              <select name="department" class="form-select" required>
+                <option value="">Select Department</option>
+                @foreach ($departmentList as $item)
+                  <option value="{{ $item->id }}" {{ old('department') == $item->id ? 'selected' : '' }}>
+                    {{ $item->dept_name }}</option>
+                @endforeach
+              </select>
+            </div>
+
             <!-- Expiration Date -->
             <div class="col-md-6 mb-3">
               <label class="form-label">Expiration Date</label>

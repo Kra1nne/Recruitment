@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('job_id')
                 ->constrained('jobs')
                 ->restrictOnDelete();
-            $table->date('end_date');
+            $table->date('date');
             $table->string('status');
             $table->timestamps();
         });

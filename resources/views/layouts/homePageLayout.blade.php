@@ -1,5 +1,7 @@
 @extends('layouts/commonMaster')
 
 @section('layoutContent')
-  @yield('content')
+  <main class="bg-white">
+    @yield('content')
+  </main>
 @endsection

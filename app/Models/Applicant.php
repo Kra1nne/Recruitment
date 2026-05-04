@@ -11,7 +11,7 @@ class Applicant extends Model
     protected $fillable = [
         'person_id',
         'job_id',
-        'end_date',
+        'date',
         'status'
     ];
 
@@ -22,5 +22,22 @@ class Applicant extends Model
     public function job()
     {
         return $this->belongsTo(Job::class, 'job_id', 'id');
+    }
+    public function applicantLogs()
+    {
+        return $this->hasMany(ApplicantLog::class, 'applicant_id', 'id');
+    }
+    public function latestApplicantLogs()
+    {
+        return $this->hasOne(ApplicantLog::class)->latestOfMany();
+    }
+
+    public function applicantStatus(): string
+    {
+        return match($this->status){
+            'Accepted' => 'text-bg-success',
+            'Rejected' => 'text-bg-danger',
+            default => 'text-bg-primary'
+        };
     }
 }

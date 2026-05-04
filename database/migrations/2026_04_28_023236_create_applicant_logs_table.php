@@ -16,6 +16,10 @@ return new class extends Migration
             $table->foreignId('applicant_id')
                 ->constrained('applicants')
                 ->restrictOnDelete();
+            $table->string('assessment_type');
+            $table->timestamp('date');
+            $table->string('source_type');
+            $table->text('notes');
             $table->timestamps();
         });
     }
