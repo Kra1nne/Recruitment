@@ -6,6 +6,12 @@
   <main style="background:#ffffff;" class="p-3 rounded-3">
 
     {{-- Page Header --}}
+    @if (session('success'))
+      <div class="alert alert-success alert-dismissible fade show">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    @endif
     <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
       <div>
         <h5 class="fw-semibold mb-0">Dashboard</h5>

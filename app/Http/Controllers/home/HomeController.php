@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ApplicationMail;
 use App\Models\Applicant;
 use App\Models\Job;
 use App\Models\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -31,7 +33,6 @@ class HomeController extends Controller
     }
     public function jobApplicant(Request $request)
     {
-        // add a send mail
         try {
             $person = [
                 'first_name' => $request->first_name,
@@ -54,6 +55,14 @@ class HomeController extends Controller
                 'created_at' => now()
             ];
             Applicant::insert($applicants);
+            $jobDetail = Job::where('id', $request->job_id)->whereNull('deleted_at')->first();
+            $mailContent = [
+                'status' => 'applied',
+                'position' => $jobDetail->position,
+                'name' => $request->first_name
+            ];
+
+            Mail::to($request->email)->send(new ApplicationMail($mailContent));
 
             return redirect()->back()->with('success', 'Job applicantion sumbit successfully!');
         } catch (\Throwable $th) {

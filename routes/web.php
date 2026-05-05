@@ -57,12 +57,16 @@ Route::get('/jobs', [HomeController::class, 'jobPage'])->name('jobs');
 Route::get('/jobs/form/{id}', [HomeController::class, 'jobForm'])->name('jobs-form');
 Route::post('/jobs/applicant/add', [HomeController::class, 'jobApplicant'])->name('job-applicant-add');
 
+
 Route::middleware(['guest'])->group(function() {
 
   Route::get('/login', [LoginBasic::class, 'index'])->name('login');
   Route::post('/login/process', [LoginBasic::class, 'loginProcess'])->name('login-process');
 
   Route::get('/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
+
+  Route::get('/auth/google/redirect', [LoginBasic::class, 'redirect'])->name('auth.google.redirect');
+  Route::get('/auth/google/callback', [LoginBasic::class, 'callback'])->name('auth.google.callback');
 });
 
 

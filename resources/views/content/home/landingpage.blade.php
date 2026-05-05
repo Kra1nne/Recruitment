@@ -39,11 +39,20 @@
         </ul>
 
         {{-- Login (Right) --}}
-        <div class="d-flex">
-          <a href="{{ route('login') }}" class="btn btn-primary fw-semibold px-4">
-            <i class="bi bi-box-arrow-in-right me-1"></i>Login
-          </a>
-        </div>
+        @if (Auth::user())
+          <div class="d-flex">
+            <a href="{{ route('logout-process') }}" class="btn btn-primary fw-semibold px-4">
+              <i class="bi bi-box-arrow-in-left me-1"></i>Logout
+            </a>
+          </div>
+        @else
+          <div class="d-flex">
+            <a href="{{ route('login') }}" class="btn btn-primary fw-semibold px-4">
+              <i class="bi bi-box-arrow-in-right me-1"></i>Login
+            </a>
+          </div>
+        @endif
+
 
       </div>
     </div>
@@ -52,7 +61,7 @@
   {{-- ══════════════════════════════════════
      HERO
 ══════════════════════════════════════ --}}
-  <section class="bg-white py-5 min-vh-100">
+  <section class="bg-white py-5" style="margin-top: 80px; margin-botton: 100px">
     <div class="container py-4">
       <div class="row align-items-center g-5">
 
@@ -102,22 +111,24 @@
         </div>
 
       </div>
+
+    </div>
+    <div class="py-3 mt-10">
+      <div class="container text-center  text-dark fw-semibold fs-6">
+        <i class="bi bi-shield-check me-2"></i>
+        Trusted by HR teams in 20+ countries &nbsp;·&nbsp;
+        <i class="bi bi-lightning-charge-fill me-2 ms-2"></i>
+        Average time-to-hire reduced by 40% &nbsp;·&nbsp;
+        <i class="bi bi-award me-2 ms-2"></i>
+        #1 Recruitment Platform 2024
+      </div>
     </div>
   </section>
 
   {{-- ══════════════════════════════════════
      DIVIDER STRIP
 ══════════════════════════════════════ --}}
-  <div class="py-3 bg-primary">
-    <div class="container text-center text-white fw-semibold fs-6">
-      <i class="bi bi-shield-check me-2"></i>
-      Trusted by HR teams in 20+ countries &nbsp;·&nbsp;
-      <i class="bi bi-lightning-charge-fill me-2 ms-2"></i>
-      Average time-to-hire reduced by 40% &nbsp;·&nbsp;
-      <i class="bi bi-award me-2 ms-2"></i>
-      #1 Recruitment Platform 2024
-    </div>
-  </div>
+
 
   {{-- ══════════════════════════════════════
      FEATURES

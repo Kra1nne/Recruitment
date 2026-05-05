@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\job;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ApplicationMail;
 use App\Models\Applicant;
 use App\Models\ApplicantLog;
 use App\Models\Department;
@@ -12,6 +13,7 @@ use App\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 {
@@ -197,9 +199,9 @@ class JobController extends Controller
     }
     public function accepted($id)
     {
-        // add a send mail
         try {
-            $applicant = Applicant::where('id', Crypt::decryptString($id))->first();
+            $applicant = Applicant::with('person')
+                ->where('id', Crypt::decryptString($id))->first();
             
             $jobDetails = Job::where('id', $applicant->job_id)->first();
             $data = [
@@ -221,6 +223,13 @@ class JobController extends Controller
             ];
       
             Employee::insert($employeeData);
+            $mailContent = [
+                'status' => 'accepted',
+                'position' => $jobDetails->position,
+                'name' => $applicant->person->first_name
+            ];
+
+            Mail::to($applicant->person->email)->send(new ApplicationMail($mailContent));
             return redirect()->back()->with('success', 'Applicant accepted successfully!');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Job unable to accepted the applicant!');
@@ -228,7 +237,6 @@ class JobController extends Controller
     }
     public function rejected($id)
     {
-        // add a send mail
         try {
             $data = [
                 'status' => 'Rejected',
@@ -236,6 +244,18 @@ class JobController extends Controller
             ];
 
             Applicant::where('id', Crypt::decryptString($id))->update($data);
+
+            $applicantDetail = Applicant::with('person', 'job')
+                ->where('id', Crypt::decryptString($id))->first();
+
+            $mailContent = [
+                'status' => 'rejected',
+                'position' => $applicantDetail->job->position,
+                'name' => $applicantDetail->person->first_name
+            ];
+            
+            Mail::to($applicantDetail->person->email)->send(new ApplicationMail($mailContent));
+
             return redirect()->back()->with('success', 'Applicant rejected successfully!');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Job unable to reject the applicant!');
@@ -270,6 +290,19 @@ class JobController extends Controller
             ];
 
             ApplicantLog::insert($data);
+            $applicant = Applicant::with('person', 'job')
+                ->where('id', $request->id)->first();
+
+            $mailContent = [
+                'status' => 'assessment',
+                'position' => $applicant->job->position,
+                'name' => $applicant->person->first_name,
+                'assessment_type' => $request->assessment_type,
+                'location' => $request->place,
+                'notes' => $request->notes
+            ];
+
+            Mail::to($applicant->person->email)->send(new ApplicationMail($mailContent));
             return redirect()->back()->with('success', 'Assessment sent successfully!');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Assessment unable to sent to the applicant!');

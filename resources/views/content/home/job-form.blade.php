@@ -37,11 +37,19 @@
           </ul>
 
           {{-- Login (Right) --}}
-          <div class="d-flex">
-            <a href="{{ route('login') }}" class="btn btn-primary fw-semibold px-4">
-              <i class="bi bi-box-arrow-in-right me-1"></i>Login
-            </a>
-          </div>
+          @if (Auth::user())
+            <div class="d-flex">
+              <a href="{{ route('logout-process') }}" class="btn btn-primary fw-semibold px-4">
+                <i class="bi bi-box-arrow-in-left me-1"></i>Logout
+              </a>
+            </div>
+          @else
+            <div class="d-flex">
+              <a href="{{ route('login') }}" class="btn btn-primary fw-semibold px-4">
+                <i class="bi bi-box-arrow-in-right me-1"></i>Login
+              </a>
+            </div>
+          @endif
 
         </div>
       </div>

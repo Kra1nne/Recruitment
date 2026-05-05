@@ -63,7 +63,8 @@
               </div>
 
               <div class="d-grid">
-                <a href="#" class="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2">
+                <a href="{{ route('auth.google.redirect') }}"
+                  class="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2">
                   <i class="bx bxl-google"></i>
                   <span>Sign in with Google</span>
                 </a>

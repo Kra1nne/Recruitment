@@ -31,8 +31,8 @@
     <!-- User -->
     <li class="nav-item navbar-dropdown dropdown-user dropdown">
       <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
-        <div class="avatar avatar-online">
-          <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle">
+        <div class="avatar rounded-circle border border-dark d-flex align-items-center justify-content-center">
+          <i class="icon-base bx bx-user icon-md"></i>
         </div>
       </a>
       {{-- <ul class="dropdown-menu dropdown-menu-end">
