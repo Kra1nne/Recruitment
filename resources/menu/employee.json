@@ -1,0 +1,25 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Dashboards",
+      "icon": "menu-icon icon-base bx bx-home-smile",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "menuHeader": "Management"
+    },
+    {
+      "url": "/profile",
+      "name": "Profile",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "profile"
+    },
+    {
+      "url": "/logout",
+      "name": "Sign out",
+      "icon": "menu-icon icon-base bx bx-log-out",
+      "slug": "logout-process"
+    }
+  ]
+}
