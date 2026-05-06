@@ -19,7 +19,9 @@ class HomeController extends Controller
     }
     public function jobPage()
     {
-        $query = Job::with('applicants')->whereNull('deleted_at');
+        $query = Job::with('applicants')
+            ->where('expired_at', '>=', now())
+            ->whereNull('deleted_at');
 
         $jobList = $query->orderBy('id', 'desc')->paginate(7)->withQueryString();
 
