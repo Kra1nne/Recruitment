@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empathra - Application Status</title>
+    <title>UP-HRIS - Application Status</title>
   </head>
 
   <body style="margin:0; padding:0; background-color:#f4f6f9; font-family: Arial, Helvetica, sans-serif;">
@@ -16,7 +16,7 @@
 
       <div style="background:#0d6efd; padding:20px; text-align:center;">
         <h1 style="color:#ffffff; margin:0; font-size:22px;">
-          Empathra
+          UP-HRIS
         </h1>
       </div>
 
@@ -97,7 +97,7 @@
 
         <p>Best regards,</p>
         <p style="font-weight:bold; margin-top:0;">
-          Empathra Team
+          UP-HRIS Team
         </p>
 
       </div>
@@ -106,7 +106,7 @@
       <div style="background:#f1f1f1; padding:20px; text-align:center; font-size:12px; color:#666;">
 
         <p style="margin:5px 0;">
-          © {{ date('Y') }} Empathra. All rights reserved.
+          © {{ date('Y') }} UP-HRIS. All rights reserved.
         </p>
 
         <p style="margin:5px 0;">
@@ -114,7 +114,7 @@
         </p>
 
         <p style="margin:5px 0;">
-          Contact us: hr@empathra.com
+          Contact us: hr@up-hris.com
         </p>
 
       </div>

@@ -11,13 +11,12 @@
     <div class="authentication-wrapper authentication-basic container-p-y">
       <div class="authentication-inner">
         <!-- Register -->
-        <div class="card px-sm-6 px-0">
+        <div class="card px-sm-2 px-0">
           <div class="card-body">
             <!-- Logo -->
             <div class="app-brand justify-content-center">
               <a href="{{ url('/') }}" class="app-brand-link gap-2">
                 <span class="app-brand-logo demo">@include('_partials.macros')</span>
-                <span class="app-brand-text demo text-heading fw-bold">{{ config('variables.templateName') }}</span>
               </a>
             </div>
             <!-- /Logo -->

@@ -14,7 +14,6 @@
       {{-- Logo (Left) --}}
       <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="#">
         <span class="app-brand-logo demo">@include('_partials.macros')</span>
-        <span class="text-primary">Empathra</span>
       </a>
 
       {{-- Toggler --}}
@@ -90,7 +89,7 @@
           <div class="rounded-4 p-4 shadow-sm border text-center w-100 bg-primary bg-opacity-10" style="max-width:420px;">
             <i class="bi bi-people-fill mb-3 d-block text-primary" style="font-size:5rem;"></i>
             <h5 class="fw-bold mb-1 text-dark">Your next great hire is here</h5>
-            <p class="text-muted small mb-3">Over 5,000 companies already trust Empathra to build their dream teams.</p>
+            <p class="text-muted small mb-3">Over 5,000 companies already trust UP-HRIS to build their dream teams.</p>
             <div class="d-flex justify-content-center gap-3">
               <div class="text-center">
                 <div class="fw-bold fs-5 text-primary">50k+</div>
@@ -129,11 +128,11 @@
     <div class="container py-3">
       <div class="text-center mb-5">
         <span class="badge rounded-pill bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">
-          Why Empathra?
+          Why UP-HRIS?
         </span>
         <h2 class="fw-bold text-dark">Everything you need to hire better</h2>
         <p class="text-muted mx-auto" style="max-width:520px;">
-          From job posting to offer letter, Empathra handles your entire recruitment workflow in one seamless platform.
+          From job posting to offer letter, UP-HRIS handles your entire recruitment workflow in one seamless platform.
         </p>
       </div>
 

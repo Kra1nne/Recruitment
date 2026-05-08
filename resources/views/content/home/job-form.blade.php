@@ -12,7 +12,6 @@
         {{-- Logo (Left) --}}
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="#">
           <span class="app-brand-logo demo">@include('_partials.macros')</span>
-          <span class="text-primary">Empathra</span>
         </a>
 
         {{-- Toggler --}}
