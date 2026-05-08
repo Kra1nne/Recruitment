@@ -75,7 +75,7 @@
             Hire with <span class="text-primary">Speed.</span>
           </h1>
           <p class="lead text-secondary mb-4">
-            Empathra is an intelligent recruitment platform that puts people first —
+            This system is an online recruitment platform that puts people first —
             streamlining hiring so you can focus on building the right team.
           </p>
           <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
@@ -125,14 +125,6 @@
     </div>
   </section>
 
-  {{-- ══════════════════════════════════════
-     DIVIDER STRIP
-══════════════════════════════════════ --}}
-
-
-  {{-- ══════════════════════════════════════
-     FEATURES
-══════════════════════════════════════ --}}
   <section class="bg-white py-5">
     <div class="container py-3">
       <div class="text-center mb-5">
@@ -272,8 +264,8 @@
             <span class="text-white fw-bold fs-4">3</span>
           </div>
           <h5 class="fw-bold text-dark">Make the Offer</h5>
-          <p class="text-muted small">Send offer letters, collect e-signatures, and onboard your new hire — all without
-            leaving Empathra.</p>
+          <p class="text-muted small">Send offer letters, and onboard your new hire — all without
+            leaving this website.</p>
         </div>
       </div>
     </div>
@@ -299,7 +291,7 @@
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p class="text-muted small mb-3">"Empathra cut our hiring time in half. The candidate matching is
+              <p class="text-muted small mb-3">"This system cut our hiring time in half. The candidate matching is
                 incredibly accurate — we're finding better-fit applicants than ever before."</p>
               <div class="d-flex align-items-center gap-2">
                 <div
@@ -343,7 +335,8 @@
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p class="text-muted small mb-3">"As a startup, we needed something fast and affordable. Empathra delivered
+              <p class="text-muted small mb-3">"As a startup, we needed something fast and affordable. This system
+                delivered
                 both. We hired our first 15 employees through it."</p>
               <div class="d-flex align-items-center gap-2">
                 <div
@@ -368,7 +361,7 @@
     <div class="container text-center py-3">
       <h2 class="fw-bold text-white mb-3">Start hiring smarter today</h2>
       <p class="text-white mb-4 opacity-75">
-        Join thousands of companies using Empathra to find the right people, faster.
+        Join thousands of companies using this system to find the right people, faster.
       </p>
       <div class="d-flex justify-content-center gap-3 flex-wrap">
         <a href="#" class="btn btn-outline-light fw-semibold px-5 py-2">
