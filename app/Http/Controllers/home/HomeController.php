@@ -17,13 +17,33 @@ class HomeController extends Controller
     {
         return view('content.home.landingpage');
     }
-    public function jobPage()
+    public function jobPage(Request $request)
     {
         $query = Job::with('applicants')
             ->where('expired_at', '>=', now())
             ->whereNull('deleted_at');
 
-        $jobList = $query->orderBy('id', 'desc')->paginate(7)->withQueryString();
+        // Search
+        if ($request->filled('search')) {
+            $search = $request->search;
+
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                    ->orWhere('company', 'like', "%{$search}%")
+                    ->orWhere('location', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
+        // Filter by type
+        if ($request->filled('type')) {
+            $query->where('work_status', $request->type);
+        }
+
+        $jobList = $query
+            ->orderBy('id', 'desc')
+            ->paginate(7)
+            ->withQueryString();
 
         return view('content.home.job', compact('jobList'));
     }

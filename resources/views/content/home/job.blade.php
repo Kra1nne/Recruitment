@@ -60,12 +60,45 @@
           <small class="text-muted">List of the active available jobs</small>
         </div>
       </div>
+      <form method="GET" action="{{ route('jobs') }}">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center flex-wrap gap-2 py-3">
+          <div class="d-flex gap-2 flex-wrap">
+
+            <!-- Search -->
+            <div class="input-group input-group-sm" style="width:220px;">
+              <span class="input-group-text bg-white">
+                <i class='bx bx-search text-muted'></i>
+              </span>
+              <input type="text" name="search" value="{{ request('search') }}" class="form-control border-start-0"
+                placeholder="Search jobs..." />
+            </div>
+
+            <!-- Type -->
+            <select name="type" class="form-select form-select-sm" style="width:auto;">
+              <option value="">All types</option>
+              <option value="Full-time" {{ request('type') == 'Full-time' ? 'selected' : '' }}>Full-time</option>
+              <option value="Contract" {{ request('type') == 'Contract' ? 'selected' : '' }}>Contract</option>
+              <option value="Contract" {{ request('type') == 'Internship' ? 'selected' : '' }}>Internship</option>
+              <option value="Contract" {{ request('type') == 'Part-time' ? 'selected' : '' }}>Part-time</option>
+            </select>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-sm btn-primary">Filter</button>
+
+            <!-- Clear -->
+            @if (request()->hasAny(['search', 'department', 'type']))
+              <a href="{{ route('jobs') }}" class="btn btn-sm btn-outline-danger">Clear</a>
+            @endif
+
+          </div>
+        </div>
+      </form>
       <div class="card-body d-flex flex-column gap-3 pt-3">
 
         {{-- Job Card 1 --}}
         @forelse ($jobList as $item)
           <a href="{{ route('jobs-form', Crypt::encryptString($item->id)) }}"
-            class="border rounded-3 p-3 text-decoration-none">
+            class="border rounded-3 p-3 text-decoration-none shadow">
             <div class="d-flex gap-3 align-items-start">
 
               <div class="w-100">
