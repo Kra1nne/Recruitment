@@ -62,6 +62,10 @@ class AccountController extends Controller
         if($request->password != $request->password_confirmation){
             return redirect()->back()->with('error', 'Account password didnt match!');
         }
+        $duplicate = User::whereNull('deleted_at')->where('username', $request->username)->first();
+        if($duplicate){
+            return redirect()->back()->with('error', 'Username already been used');
+        }
         try {
             $data = [
                 'person_id' => $request->person_id,
