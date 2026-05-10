@@ -47,7 +47,7 @@
               <th class="small text-muted fw-semibold">Employees #</th>
               <th class="small text-muted fw-semibold">Department</th>
               <th class="small text-muted fw-semibold">Position</th>
-              <th class="small text-muted fw-semibold">Created</th>
+              <th class="small text-muted fw-semibold">Hire Date</th>
               <th class="small text-muted fw-semibold text-end pe-3">Actions</th>
             </tr>
           </thead>
@@ -72,7 +72,7 @@
                 <td><span class="small">{{ $item->employee_id }}</span></td>
                 <td><span class="small">{{ $item->department->dept_name }}</span></td>
                 <td><span class="small">{{ $item->position }}</span></td>
-                <td><span class="text-muted small">{{ date('M d, Y', strtotime($item->created_at)) }}</span></td>
+                <td><span class="text-muted small">{{ date('M d, Y', strtotime($item->start_date)) }}</span></td>
                 <td class="text-end pe-3">
                   <div class="d-flex gap-1 justify-content-end">
                     <a href="{{ route('employee-view', Crypt::encryptString($item->id)) }}"

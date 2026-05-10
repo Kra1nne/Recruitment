@@ -7,6 +7,7 @@ use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Log;
 use App\Models\Person;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -156,6 +157,7 @@ class EmployeeController extends Controller
 
             Person::where('id', $employeeData->person->id)->delete();    
             Employee::where('id', $id)->delete();
+            User::where('person_id', $id)->delete();
             
             $logData = [
                 'user_id' => Auth::user()->id,
